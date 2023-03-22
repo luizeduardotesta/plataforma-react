@@ -1,22 +1,21 @@
-import { Container, Button } from "react-bootstrap";
 import { Outlet, Link } from "react-router-dom";
 
 export function Home() {
     return (
         <div className="home">
             <h1>Home</h1>
-            <Container>
-                <Button variant="link">
-                    <Link to="/produtos">Produtos</Link>
-                </Button>
-                <Button variant="link">
-                    <Link to="/info">Info</Link>
-                </Button>
-                <Button variant="link">
-                    <Link to="/vendas">Vendas</Link>
-                </Button>
-                <Outlet />
-            </Container>
+            <ul>
+                <li>
+                    <Link to="/1">Section 1</Link>
+                </li>
+                <li>
+                    <Link to="/2">Section 2</Link>
+                </li>
+                <li>
+                    <Link to="/3">Section 3</Link>
+                </li>
+            </ul>
+            <Outlet />
         </div>
     );
 }
