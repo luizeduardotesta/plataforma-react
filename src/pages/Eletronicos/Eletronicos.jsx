@@ -29,15 +29,15 @@ export function Eletronicos() {
                 {errors.numeroDeSerie && <span className="invalid">Digite um Número de série válido</span>}<br />
 
                 <label htmlFor="descriçãoDoProblema">Descrição do problema</label><br />
-                <input type="text" id="descriçãoDoProblema" {...register("descriçãoDoProblema", { required: true, maxLength: 255 })} step="0.01" /><br />
+                <textarea id="descriçãoDoProblema" rows={5} cols={50} {...register("descriçãoDoProblema", { required: true, maxLength: 255 })} /><br />
                 {errors.descriçãoDoProblema && <span className="invalid">Digite uma Descrição do problema válida</span>}<br />
 
                 <label htmlFor="dataDeEntrada">Data de entrada</label><br />
-                <input type="text" id="dataDeEntrada" {...register("dataDeEntrada", { required: true, maxLength: 255 })} /><br />
+                <input type="date" id="dataDeEntrada" {...register("dataDeEntrada", { required: true, maxLength: 255 })} /><br />
                 {errors.dataDeEntrada && <span className="invalid">Digite uma Data de entrada válida</span>}<br />
 
                 <label htmlFor="previsãoDeEntrega">Previsão de entrega</label><br />
-                <input type="text" id="previsãoDeEntrega" {...register("previsãoDeEntrega", { required: true, maxLength: 255 })} /><br />
+                <input type="date" id="previsãoDeEntrega" {...register("previsãoDeEntrega", { required: true, maxLength: 255 })} /><br />
                 {errors.previsãoDeEntrega && <span className="invalid">Digite uma Previsão de entrega válida</span>}<br />
 
                 <label htmlFor="status">Status</label><br />

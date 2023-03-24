@@ -50,16 +50,16 @@ Além disso, é importante que o formulário seja de fácil preenchimento e util
 Atividade 3:
 
 Desenvolva um formulário de cadastro de programadores para uma empresa de desenvolvimento de software. O formulário deve ter os seguintes campos:
+
 Nome completo
 Endereço de e-mail
 Telefone
 Estado de residência
 Cidade de residência
 Áreas de interesse (utilize um acervo de campos de check)
-Nível de experiência (utilize um campo de seleção ->
-
-júnior, pleno, sênior)
+Nível de experiência (utilize um campo de seleção -> júnior, pleno, sênior)
 Portfólio (opção para incluir link)
 Habilidades técnicas (utilize um acervo de campos de check)
 Formação acadêmica (curso, instituição, ano de conclusão)
+
 Para uma melhor experiência de uso do formulário aplique validação nos campos sabendo que os campos de texto e seleção devem ser preenchidos e informações como e-mail devem ser validas e os campos não devem passar de 255 caracteres. Os campos inválidos devem mostrar abaixo um mensagem de feedback. Para tratamento dos dados e validação utilize os mecanismos do React Hook Form. Como retorno para o usuário mostre um modal com as informações de entrada do formulário. Para criação do campos, botões e modal utilize os recursos do React Bootstrap.

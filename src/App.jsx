@@ -12,6 +12,7 @@ import { EditaUsuario } from './pages/EditaUsuario/EditaUsuario';
 import { Perfil } from './components/Perfil/Perfil';
 import { SuperHeroi } from './pages/SuperHeroi/SuperHeroi';
 import { Eletronicos } from './pages/Eletronicos/Eletronicos';
+import { Programadores } from './pages/Programadores/Programadores';
 
 const sections = [
   {
@@ -47,6 +48,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/superheroi" element={<SuperHeroi />} />
             <Route path="/eletronicos" element={<Eletronicos />} />
+            <Route path="/programadores" element={<Programadores />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
