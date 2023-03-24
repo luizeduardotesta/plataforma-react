@@ -10,6 +10,7 @@ import { Root } from './pages/Root/Root';
 import { Section } from './components/Section/Section';
 import { EditaUsuario } from './pages/EditaUsuario/EditaUsuario';
 import { Perfil } from './components/Perfil/Perfil';
+import { SuperHeroi } from './pages/SuperHeroi/SuperHeroi';
 
 const sections = [
   {
@@ -43,6 +44,7 @@ function App() {
             <Route path="/usuario/edit/:id" element={<EditaUsuario />} />
             <Route path="usuario/perfil/:id" element={<Perfil />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/superheroi" element={<SuperHeroi />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
