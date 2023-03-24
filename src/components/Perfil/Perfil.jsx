@@ -6,9 +6,7 @@ import { Button } from "react-bootstrap"
 export function Perfil() {
 
     let { id } = useParams();
-    const usuario = usuarios.find(usuario => {
-        return usuario.id === Number(id);
-    });
+    let usuario = usuarios.find(u => u.id === Number(id));
 
     return (
         <div className="perfil">

@@ -7,7 +7,7 @@ Atividade 2:
 Crie um novo componente chamado Login. Utilize React Router para especificar uma nova rota que renderize este novo componente. Para este componente crie dois campos de formulário para o e-mail e senha, e um botão de submit. Crie também um botão para possibilitar a autenticação via Google. Utilize React Bootstrap para estruturar está página. A estilização fica a seu critério, seja criativo.
 Inspire-se: https://cssauthor.com/best-free-bootstrap-login-forms/
 
-22/03/2023
+22/03/2023 - extras
 
 Atividade 1:
 Conhecendo os recursos de rotas alinhadas do React Router, crie dentro da rota da página principal (Home), três rotas filhas que representam, respectivamente, três seções dentro dessa página. Veja o vídeo de exemplo em anexo.
