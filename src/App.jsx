@@ -11,6 +11,7 @@ import { Section } from './components/Section/Section';
 import { EditaUsuario } from './pages/EditaUsuario/EditaUsuario';
 import { Perfil } from './components/Perfil/Perfil';
 import { SuperHeroi } from './pages/SuperHeroi/SuperHeroi';
+import { Eletronicos } from './pages/Eletronicos/Eletronicos';
 
 const sections = [
   {
@@ -45,6 +46,7 @@ function App() {
             <Route path="usuario/perfil/:id" element={<Perfil />} />
             <Route path="/login" element={<Login />} />
             <Route path="/superheroi" element={<SuperHeroi />} />
+            <Route path="/eletronicos" element={<Eletronicos />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

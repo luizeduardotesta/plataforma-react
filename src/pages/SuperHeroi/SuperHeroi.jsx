@@ -1,11 +1,8 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
-import Alert from 'react-bootstrap/Alert';
 
 export function SuperHeroi() {
 
     const { register, handleSubmit } = useForm();
-    const [heroi, setHeroi] = useState();
 
     function onSubmitHeroi(heroi) {
         let cadastroHeroi = `

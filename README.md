@@ -37,12 +37,14 @@ Atividade: Desenvolva um formulário de cadastro de super-heróis. Criar um form
 Atividade 2:
 
 Desenvolva um formulário de cadastro de equipamentos eletrônicos para uma empresa de manutenção de eletrônicos. O formulário deve ter os seguintes campos:
+
 Marca e modelo do equipamento
 Número de série
 Descrição do problema
 Data de entrada
 Previsão de entrega
 Status (utilize um campo de seleção)
+
 Além disso, é importante que o formulário seja de fácil preenchimento e utilize validação de dados. Para este exercício, utilize os mecanismos do React Hook Form e aplique os recursos de validação de erros para garantir a boa usabilidade do formulário, sabendo que todos os campos devem ser preenchidos e que não devem passar de 255 caracteres. Para campos com valores inválidos mostre uma mensagens abaixo do campo com um feedback de invalidação. Como resposta ao usuário mostre as informações em um caixa de dialogo (alert).
 
 Atividade 3:

@@ -26,6 +26,9 @@ export function Menu() {
                         <Button variant="link">
                             <Link to="/superheroi">Heroi</Link>
                         </Button>
+                        <Button variant="link">
+                            <Link to="/eletronicos">Eletrônicos</Link>
+                        </Button>
                     </Nav>
                 </Container>
             </Navbar>
