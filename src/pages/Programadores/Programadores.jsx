@@ -1,14 +1,23 @@
 import { useForm } from "react-hook-form";
 import "./Programadores.css"
-import { Button, Form, Modal } from "react-bootstrap";
+import { Alert, Button, Form, Modal } from "react-bootstrap";
 import { useState } from "react";
 
 export function Programadores() {
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const [programadores, setProgramadores] = useState({});
+
+    const patternEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [programadores, setProgramadores] = useState();
 
     function onSubmitProgramadores(data) {
         setProgramadores(data);
+        setShow(true);
     }
 
     return (
@@ -17,28 +26,28 @@ export function Programadores() {
             <form onSubmit={handleSubmit(onSubmitProgramadores)}>
                 <Form.Group className="mb-3">
                     <Form.Label>Nome completo</Form.Label>
-                    <Form.Control {...register("nome")} />
-                    {errors.nome && <span className="invalid">Digite um nome válido!</span>}
+                    <Form.Control {...register("nome", { required: true, maxLength: 255 })} />
+                    {errors.nome && <Alert variant="danger" className="py-1 mt-2">Nome inválido!</Alert>}
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>E-mail</Form.Label>
-                    <Form.Control {...register("email")} />
-                    {errors.email && <span className="invalid">Digite um email válido!</span>}
+                    <Form.Control {...register("email", { required: true, maxLength: 255, pattern: patternEmail })} />
+                    {errors.email && <Alert variant="danger" className="py-1 mt-2">E-mail inválido!</Alert>}
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Telefone</Form.Label>
                     <Form.Control {...register("telefone")} />
-                    {errors.telefone && <span className="invalid">Digite um telefone válido!</span>}
+                    {errors.telefone && <Alert variant="danger" className="py-1 mt-2">Telefone inválido!</Alert>}
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Estado</Form.Label>
-                    <Form.Control {...register("estado")} />
-                    {errors.estado && <span className="invalid">Digite um estado válido!</span>}
+                    <Form.Control {...register("estado", { required: true, maxLength: 255 })} />
+                    {errors.estado && <Alert variant="danger" className="py-1 mt-2">Estado inválido!</Alert>}
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Cidade</Form.Label>
-                    <Form.Control {...register("cidade")} />
-                    {errors.cidade && <span className="invalid">Digite um cidade válido!</span>}
+                    <Form.Control {...register("cidade", { required: true, maxLength: 255 })} />
+                    {errors.cidade && <Alert variant="danger" className="py-1 mt-2">Cidade inválida!</Alert>}
                 </Form.Group>
                 <Form.Label>Interesses</Form.Label>
                 <Form.Group className="mb-3" controlId="back">
@@ -52,16 +61,17 @@ export function Programadores() {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Nível de experiência</Form.Label>
-                    <Form.Select {...register("nivel")}>
+                    <Form.Select {...register("nivel", { required: true, maxLength: 255 })}>
                         <option>Júnior</option>
                         <option>Pleno</option>
                         <option>Sênior</option>
                     </Form.Select>
+                    {errors.nivel && <Alert variant="danger" className="py-1 mt-2">Nível de experiência inválido!</Alert>}
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Portfólio</Form.Label>
                     <Form.Control {...register("portfolio")} />
-                    {errors.portfolio && <span className="invalid">Digite um portfolio válido!</span>}
+                    {errors.portfolio && <Alert variant="danger" className="py-1 mt-2">Endereço do portfólio inválido!</Alert>}
                 </Form.Group>
                 <Form.Label>Habilidades</Form.Label>
                 <Form.Group className="mb-3" controlId="html">
@@ -76,42 +86,50 @@ export function Programadores() {
                 <Form.Group className="mb-3">
                     <Form.Label>Formação acadêmica</Form.Label>
                     <Form.Control {...register("academico")} />
-                    {errors.academico && <span className="invalid">Digite uma formação academica válida!</span>}
+                    {errors.academico && <Alert variant="danger" className="py-1 mt-2">Formação acadêmica inválida!</Alert>}
                 </Form.Group>
                 <Button variant="dark">Enviar</Button>
             </form>
 
 
-            {
-                programadores &&
-                < div className="modal show" style={{ display: 'block', position: 'initial' }}>
-                    <Modal.Dialog>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Cadastro</Modal.Title>
-                        </Modal.Header>
-
-                        <Modal.Body>
-                            <p>
-                                Nome completo: {programadores.nome}<br />
-                                E-mail: {programadores.email}<br />
-                                Telefone: {programadores.telefone}<br />
-                                Cidade de residência: {programadores.cidade}<br />
-                                Estado de residência: {programadores.estado}<br />
-                                Áreas de Interesse: {programadores.back}<br />
-                                Nível de experiência: {programadores.nivel}<br />
-                                Portfólio: {programadores.portfolio}<br />
-                                Habilidades técnicas: {programadores.html}<br />
-                                Formação acadêmica: {programadores.academico}<br />
-                            </p>
-                        </Modal.Body>
-
-                        <Modal.Footer>
-                            <Button variant="secondary">Close</Button>
-                            <Button variant="primary">Save changes</Button>
-                        </Modal.Footer>
-                    </Modal.Dialog>
-                </div >
-            }
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Informações do Dev</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <ul>
+                        <li>{programadores.nome}</li>
+                        <li>{programadores.email}</li>
+                        <li>{programadores.telefone}</li>
+                        <li>{programadores.estado}</li>
+                        <li>{programadores.cidade}</li>
+                        <li>{programadores.nivel}</li>
+                        <li>{programadores.academico}</li>
+                        <li>{programadores.portfolio}</li>
+                        <li>
+                            Habilidades
+                            <ul>
+                                <li>{programadores.js ? "Possuo" : "Não possuo"} habilidade em JavaScript</li>
+                                <li>{programadores.html ? "Possuo" : "Não possuo"} habilidade em HTML</li>
+                                <li>{programadores.css ? "Possuo" : "Não possuo"} habilidade em CSS</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Interesses
+                            <ul>
+                                <li>{programadores.back ? "Possuo" : "Não possuo"} interesse em Back-End</li>
+                                <li>{programadores.front ? "Possuo" : "Não possuo"} interesse em Front-End</li>
+                                <li>{programadores.mobile ? "Possuo" : "Não possuo"} interesse em Mobile</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="danger" onClick={handleClose}>
+                        Fechar
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 }
